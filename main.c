@@ -16,6 +16,12 @@ int main(int argc, char *argv[]) {
     run_serial(image, &cfg);
     write_pgm("mandelbrot_alvs_serial.pgm", image, &cfg);
 
+    run_openmp(image, &cfg);
+    write_pgm("mandelbrot_alvs_openmp.pgm", image, &cfg);
+
+    run_pthreads1(image, &cfg);
+    write_pgm("mandelbrot_alvs_pthreads1.pgm", image, &cfg);
+
     free(image);
 
     return 0;
