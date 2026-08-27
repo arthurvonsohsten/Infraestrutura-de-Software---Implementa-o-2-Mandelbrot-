@@ -22,6 +22,9 @@ int main(int argc, char *argv[]) {
     run_pthreads1(image, &cfg);
     write_pgm("mandelbrot_alvs_pthreads1.pgm", image, &cfg);
 
+    run_pthreads2(image, &cfg);
+    write_pgm("mandelbrot_alvs_pthreads2.pgm", image, &cfg);
+
     free(image);
 
     return 0;

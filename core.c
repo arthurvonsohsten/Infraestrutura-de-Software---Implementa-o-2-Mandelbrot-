@@ -6,11 +6,8 @@ static const double IMAG_MIN = -1.5;
 static const double IMAG_MAX = 1.5;
 
 unsigned char mandelbrot_pixel(int px, int py, const Config *cfg) {
-    double fx = (cfg->width > 1) ? (double)px / (double)(cfg->width - 1) : 0.0;
-    double fy = (cfg->height > 1) ? (double)py / (double)(cfg->height - 1) : 0.0;
-
-    double cr = REAL_MIN + (REAL_MAX - REAL_MIN) * fx;
-    double ci = IMAG_MIN + (IMAG_MAX - IMAG_MIN) * fy;
+    double cr = REAL_MIN + (REAL_MAX - REAL_MIN) * (double)px / (double)cfg->width;
+    double ci = IMAG_MIN + (IMAG_MAX - IMAG_MIN) * (double)py / (double)cfg->height;
 
     double zr = 0.0;
     double zi = 0.0;
